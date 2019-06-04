@@ -22,7 +22,7 @@ export default function(options) {
       if (globalEvent) {
         globalEvent.emit(`$$${name}`, args);
       }
-      if (typeof oldEvent === "function") {
+      if (typeof realEvent === "function") {
         realEvent.call(this, ...args);
       }
     };
