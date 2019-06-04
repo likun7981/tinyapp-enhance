@@ -1,6 +1,11 @@
 # tinyapp-enhance
 > 支付宝小程序 
 
+## 安装
+
+```bash
+$ npm i tinyapp-enhance
+```
 
 ## 列表
 - [x] 组件监听当前页面的`onPageScroll`,`onShow`,`onResize`,`onHide`
