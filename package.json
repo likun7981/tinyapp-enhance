@@ -1,0 +1,28 @@
+{
+  "devDependencies": {
+    "@babel/preset-env": "^7.4.5",
+    "rollup": "^1.13.1",
+    "rollup-plugin-babel": "^4.3.2",
+    "@babel/core": "^7.4.5"
+  },
+  "files": [
+    "dist"
+  ],
+  "name": "tinyapp-enhance",
+  "description": "赋予支付宝小程序Component 访问当前Page 生命周期 的能力",
+  "version": "0.0.5",
+  "main": "dist/index.js",
+  "scripts": {
+    "prepublishOnly": "rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/likun7981/tinyapp-enhance.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/likun7981/tinyapp-enhance/issues"
+  },
+  "homepage": "https://github.com/likun7981/tinyapp-enhance#readme"
+}
