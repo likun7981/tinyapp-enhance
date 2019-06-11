@@ -13,14 +13,6 @@ $ npm i tinyapp-enhance
 ## 使用方法
 
 ```diff
-// App.js
-import { enhanceApp } from 'tinyapp-enhance'
-
-const options = {
-  // App的一些配置
-}
-- App(options)
-+ App(enhanceApp(options));
 
 // 页面
 // Pages/page1/xxx.js

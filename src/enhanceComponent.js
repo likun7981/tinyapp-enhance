@@ -10,22 +10,18 @@ const enhance = function({
   return {
     ...otherOptions,
     didMount() {
-      const { $page: { $viewId } = {} } = this;
+      const { $page: { $pageEvent } = {} } = this;
       this.unbind = [];
-      if (pageLifetimes && $viewId && globalEvent) {
+      if (pageLifetimes && $pageEvent) {
         Object.keys(pageLifetimes).forEach(name => {
           if (pageLifetimeNames.indexOf(name) > -1) {
             this.unbind.push(
-              globalEvent.on(`$$${name}`, args => {
-                const pages = getCurrentPages();
-                const current = pages[pages.length - 1];
-                if (current.$viewId === $viewId) {
-                  pageLifetimes[name].call(this, ...args);
-                }
+              $pageEvent.on(`$$${name}`, args => {
+                pageLifetimes[name].call(this, ...args);
               })
             );
           } else {
-            console.log('not support', name)
+            console.log("not support", name);
           }
         });
       }

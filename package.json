@@ -10,10 +10,11 @@
   ],
   "name": "tinyapp-enhance",
   "description": "赋予支付宝小程序Component 访问当前Page 生命周期 的能力",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "dist/index.js",
   "scripts": {
-    "prepublishOnly": "rollup -c"
+    "build": "rollup -c",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",

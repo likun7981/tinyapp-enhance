@@ -1,15 +1,14 @@
+import createEvent from "./createEvent";
 const lifetimeNames = ["onPageScroll", "onShow", "onHide"];
 
 const eventNames = ["onResize"];
 
 export default function(options) {
-  const { globalEvent } = getApp();
+  const $pageEvent = createEvent()
   lifetimeNames.forEach(name => {
     const realLifetime = options[name];
     options[name] = function(...args) {
-      if (globalEvent) {
-        globalEvent.emit(`$$${name}`, args);
-      }
+      $pageEvent.emit(`$$${name}`, args);
       if (typeof realLifetime === "function") {
         realLifetime.call(this, ...args);
       }
@@ -19,14 +18,13 @@ export default function(options) {
   eventNames.forEach(name => {
     const realEvent = events[name];
     events[name] = function(...args) {
-      if (globalEvent) {
-        globalEvent.emit(`$$${name}`, args);
-      }
+      $pageEvent.emit(`$$${name}`, args);
       if (typeof realEvent === "function") {
         realEvent.call(this, ...args);
       }
     };
   });
   options.events = events;
+  options.$pageEvent = $pageEvent
   return options;
 }
